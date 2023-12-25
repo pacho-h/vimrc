@@ -9,7 +9,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'kdheepak/lazygit.nvim'
 call plug#end()
 
-nmap <F12> :NERDTreeToggle
+nmap <F12> :NERDTreeToggle<CR>
 let g:rainbow_active=1
 colorscheme nord
 
@@ -23,7 +23,7 @@ let g:lazygit_use_custom_config_file_path = 0 " config file path is evaluated if
 let g:lazygit_config_file_path = '' " custom config file path
 " OR
 let g:lazygit_config_file_path = [] " list of custom config file paths
-nmap gl :LazyGit
+nmap gl :LazyGit<CR>
 
 
 " vim config
