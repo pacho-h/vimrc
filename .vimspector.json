@@ -8,7 +8,7 @@
         "type": "python",
         "request": "launch",
         "cwd": "${workspaceRoot}",
-        "python": "<${poetry env info -p}/bin/python">,
+        "python": "<${poetry env info -p}/bin/python>",
         "stopOnEntry": true,
         "console": "externalTerminal",
         "debugOptions": ["-i"],
