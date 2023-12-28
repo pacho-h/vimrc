@@ -9,15 +9,21 @@ Plug 'tpope/vim-fugitive'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'shaunsingh/solarized.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'puremourning/vimspector'
 call plug#end()
-"enable treesitter"
-lua require('config/treesitter')
 
-nmap <F12> :NERDTreeToggle<CR>
-let g:rainbow_active=1
 colorscheme solarized
 
-" lazygit
+" ==============enable treesitter"
+lua require('config/treesitter')
+
+" ==============NEARTree
+nmap nt :NERDTreeToggle<CR>
+
+" ==============rainbow bracket
+let g:rainbow_active=1
+
+" ==============lazygit
 let g:lazygit_floating_window_winblend = 0 " transparency of floating window
 let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating window
 let g:lazygit_floating_window_border_chars = ['╭','─', '╮', '│', '╯','─', '╰', '│'] " customize lazygit popup window border characters
@@ -27,7 +33,37 @@ let g:lazygit_use_custom_config_file_path = 0 " config file path is evaluated if
 let g:lazygit_config_file_path = [] " list of custom config file paths
 nmap gl :LazyGit<CR>
 
-" vim config
+" ==============viminspector(debug inspect)
+" base dir
+let g:vimspector_base_dir = '/Users/han/.vim/plugged/vimspector'
+" Human Mode
+" F5	<Plug>VimspectorContinue	When debugging, continue. Otherwise start debugging.
+" F3	<Plug>VimspectorStop	Stop debugging.
+" F4	<Plug>VimspectorRestart	Restart debugging with the same configuration.
+" F6	<Plug>VimspectorPause	Pause debuggee.
+" F9	<Plug>VimspectorToggleBreakpoint	Toggle line breakpoint on the current line.
+" <leader>F9	<Plug>VimspectorToggleConditionalBreakpoint	Toggle conditional line breakpoint on the current line.
+" F8	<Plug>VimspectorAddFunctionBreakpoint	Add a function breakpoint for the expression under cursor
+" <leader>F8	<Plug>VimspectorRunToCursor	Run to Cursor
+" F10	<Plug>VimspectorStepOver	Step Over
+" F11	<Plug>VimspectorStepInto	Step Into
+" F12	<Plug>VimspectorStepOut	Step out of current function scope
+let g:vimspector_enable_mappings = 'HUMAN'
+
+" for normal mode - the word under the cursor
+nmap <leader>di <Plug>VimspectorBalloonEval
+
+" for visual mode, the visually selected text
+xmap <leader>di <Plug>VimspectorBalloonEval
+
+" close vimspector
+nmap <F7> :call vimspector#Reset()<CR>
+
+" breake point
+nmap <leader>b :call vimspector#ToggleBreakpoint()<CR>
+nmap <leader>B :call vimspector#ClearBreakpoints()<CR>
+
+" ==============vim config
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
 set ignorecase              " case insensitive 
@@ -53,3 +89,4 @@ set ttyfast                 " Speed up scrolling in Vim
 " set spell                 " enable spell check (may need to download language package)
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
+
