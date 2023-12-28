@@ -10,6 +10,7 @@ Plug 'kdheepak/lazygit.nvim'
 Plug 'shaunsingh/solarized.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'puremourning/vimspector'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 colorscheme solarized
@@ -62,6 +63,20 @@ nmap <F7> :call vimspector#Reset()<CR>
 " breake point
 nmap <leader>b :call vimspector#ToggleBreakpoint()<CR>
 nmap <leader>B :call vimspector#ClearBreakpoints()<CR>
+
+" ==============CoC
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+" use <cr> to confirm
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " ==============vim config
 set nocompatible            " disable compatibility to old-time vi
