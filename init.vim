@@ -11,6 +11,7 @@ Plug 'shaunsingh/solarized.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'puremourning/vimspector'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 colorscheme solarized
@@ -79,6 +80,9 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 " remap <cr> to make it confirm completion
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" ==============MarkdownPreview
+nmap mp <Plug>MarkdownPreviewToggle
 
 " ==============vim config
 set nocompatible            " disable compatibility to old-time vi
