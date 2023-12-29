@@ -65,6 +65,8 @@ nmap <leader>b :call vimspector#ToggleBreakpoint()<CR>
 nmap <leader>B :call vimspector#ClearBreakpoints()<CR>
 
 " ==============CoC
+" CoC for python
+" :CocInstall coc-pyright
 " use <tab> to trigger completion and navigate to the next complete item
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -75,7 +77,7 @@ inoremap <silent><expr> <Tab>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-" use <cr> to confirm
+" remap <cr> to make it confirm completion
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " ==============vim config
