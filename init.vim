@@ -1,3 +1,6 @@
+" ==============fzf run-time-path
+set rtp+=/opt/homebrew/opt/fzf
+" ==============vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
@@ -12,6 +15,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'puremourning/vimspector'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'wookayin/fzf-ripgrep.vim'
 call plug#end()
 
 colorscheme solarized
