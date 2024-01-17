@@ -111,7 +111,7 @@ set clipboard=unnamedplus   " using system clipboard
 filetype plugin on
 set cursorline              " highlight current cursorline
 set ttyfast                 " Speed up scrolling in Vim
-" set relativenumber
+set relativenumber
 " set mouse=v                 " middle-click paste with 
 " set spell                 " enable spell check (may need to download language package)
 " set noswapfile            " disable creating swap file
